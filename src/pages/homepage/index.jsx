@@ -7,6 +7,9 @@ const Homepage = () => {
         <div>
             <Banner />
             <OurServices />
+            <OurServices />
+            <OurServices />
+            <OurServices />
         </div>
     )
 }
