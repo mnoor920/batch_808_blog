@@ -80,3 +80,19 @@
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
+.grid_services {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.grid_services .card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+}
