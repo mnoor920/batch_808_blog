@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react'
 const GetData = () => {
     const [posts, setPosts] = useState([]);
     const [selectedOption, setSelectedOption] = useState("");
+    const [count, setCount] = useState(0);
+
 
     const fetchData = async () => {
         try {
@@ -27,9 +29,9 @@ const GetData = () => {
 
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [count]);
 
-    console.log(posts, "posts data");
+
 
     const filterData = posts.filter(item => {
         if (selectedOption === "") {
@@ -40,7 +42,7 @@ const GetData = () => {
     })
 
     return (
-        <div>
+        <div className='container'>
 
             <select name="" id="" onChange={(e) => setSelectedOption(e.target.value)} value={selectedOption}>
                 <option value="">Select</option>
@@ -57,7 +59,14 @@ const GetData = () => {
                 <option value={10}>z</option>
 
             </select>
-
+            <div className="count">
+                Count: {count}
+                <div className="">
+                    <button onClick={() => setCount(count + 1)}>Increment</button>
+                    <button onClick={() => setCount(count - 1)}>Decrement</button>
+                </div>
+                <button onClick={() => { setCount(0); fetchData() }} >Reset</button>
+            </div>
             <div className="grid_services">
                 {filterData && filterData?.map((item) => (
                     <div className="card" key={item.id}>
